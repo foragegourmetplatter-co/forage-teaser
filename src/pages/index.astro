@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+---
+import Hero from "../components/hero.astro"
+import Footer from "../components/footer.astro"
+---
+
 <html lang="en">
 
 <head>
@@ -18,27 +22,18 @@
     <link rel="icon" href="/public/favicon.ico" />
     <link rel="apple-touch-icon" href="/public/favicon.svg" />
 
-    <link rel="stylesheet" href="css/styles.css?v=1.0" />
+	<link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;900&display=swap");
     </style>
 </head>
 
 <body>
-    <section id="heroSection">
-        <div id="heroBox">text</div>
-        <div id="chevron"><a href="#callToAction">chevron</a></div>
-    </section>
+	<main>
+	<Hero/>
+	</main>
 
-    <section id="callToAction">
-        <img id="logo" src="/public/forage.svg" alt="Forage Gourmet Platter Co" />
-        <div id="socials">
-            <img class="socialLogo" src="/public/fb.svg" alt="facebook" />
-            <img class="socialLogo" src="/public/insta.svg" alt="instagram" />
-        </div>
 
-        <footer>2022 Forage Gourmet Platter Co</footer>
-    </section>
 </body>
 
 </html>
