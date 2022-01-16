@@ -1,58 +1,57 @@
----
----
-<html>
+--- ---
 <section id="bottom" class="callToAction">
-    <img id="logo" src="/public/forage.svg" alt="Forage Gourmet Platter Co" />
-    <div id="socials">
-        <img class="socialLogo" src="/public/fb.svg" alt="facebook" />
-        <img class="socialLogo" src="/public/insta.svg" alt="instagram" />
-    </div>
+  <img id="logo" src="/public/forage.svg" alt="Forage Gourmet Platter Co" />
+  <div id="socials">
+    <a href="https://facebook.com/foragegourmetplatterco">
+      <img class="socialLogo" src="/public/fb.svg" alt="facebook"
+    /></a>
+    <a href="https://instagram.com/forage.gourmetplatterco">
+      <img class="socialLogo" src="/public/insta.svg" alt="instagram"
+    /></a>
+  </div>
 
-    <footer>©2022 Forage Gourmet Platter Co</footer>
+  <footer>©2022 Forage Gourmet Platter Co</footer>
 </section>
-
-</html>
-
 <style>
-    .callToAction {
-        display: grid;
-        height: 100vh;
-        width: 100%;
-        grid-template-columns: repeat(6, auto);
-        grid-template-rows: repeat(5, auto) 4em;
-    }
-    
-    #logo {
-        grid-column: 2 / span 4;
-        grid-row: 2;
-        justify-self: center;
-        align-self: center;
-        max-width: 50em;
-    }
-    
-    #socials {
-        grid-column: 3 / span 2;
-        grid-row: 4;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        height: fit-content;
-        width: fit-content;
-        justify-self: center;
-    }
-    
-    .socialLogo {
-        margin: 0.5em;
-        width: 5em;
-        height: 5em;
-        flex: 1;
-    }
-    
-    footer {
-        color: #cdc9c3;
-        font-family: Montserrat, Tahoma, Geneva, Verdana, sans-serif;
-        grid-row: 6;
-        grid-column: 3 / span 2;
-        text-align: center;
-    }
+  .callToAction {
+    display: grid;
+    height: 100vh;
+    width: 100%;
+    grid-template-columns: repeat(6, auto);
+    grid-template-rows: repeat(5, auto) 4em;
+  }
+
+  #logo {
+    grid-column: 2 / span 4;
+    grid-row: 2;
+    justify-self: center;
+    align-self: center;
+    max-width: 50em;
+  }
+
+  #socials {
+    grid-column: 3 / span 2;
+    grid-row: 4;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    height: fit-content;
+    width: fit-content;
+    justify-self: center;
+  }
+
+  .socialLogo {
+    margin: 0.5em;
+    width: 5em;
+    height: 5em;
+    flex: 1;
+  }
+
+  footer {
+    color: #cdc9c3;
+    font-family: Montserrat, Tahoma, Geneva, Verdana, sans-serif;
+    grid-row: 6;
+    grid-column: 3 / span 2;
+    text-align: center;
+  }
 </style>

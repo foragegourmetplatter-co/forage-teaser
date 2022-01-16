@@ -4,36 +4,54 @@ import Footer from "../components/footer.astro"
 ---
 
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Forage Gourmet Platter Co</title>
-    <meta name="description" content="Gourmet platter boxes and grazing tables. Fresh, local ingredients. Eco-friendly packaging" />
+    <meta
+      name="description"
+      content="Gourmet platter boxes and grazing tables. Fresh, local ingredients. Eco-friendly packaging"
+    />
     <meta name="author" content="Forage Gourmet Platter Co" />
 
     <meta property="og:title" content="Forage Gourmet Platter Co" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://www.foragegourmetplatter.co" />
-    <meta property="og:description" content="Gourmet platter boxes and grazing tables" />
+    <meta
+      property="og:description"
+      content="Gourmet platter boxes and grazing tables"
+    />
     <meta property="og:video" content="image.png" />
     <link rel="icon" href="/public/favicon.ico" />
     <link rel="apple-touch-icon" href="/public/favicon.svg" />
 
-	<link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
+    <link rel="stylesheet" href={Astro.resolve('../styles/global.css')}>
     <style>
-        @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;900&display=swap");
+      @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;900&display=swap');
     </style>
-</head>
-
-<body>
-	<main>
-	<Hero/>
-	</main>
-
-
+  </head>
+ <body>
+    <Hero />
+    <Footer />
 </body>
-
 </html>
+
+<style>
+  html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+  }
+  *,
+  *:before,
+  *:after {
+    box-sizing: inherit;
+  }
+  body {
+    display: grid;
+    margin: 0;
+    padding: 0;
+    background-color: #fbf7f0;
+  }
+</style>

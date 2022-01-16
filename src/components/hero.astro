@@ -1,0 +1,44 @@
+---
+---
+<html>
+  <section id="heroSection">
+    <div id="heroBox">
+      <img src="/public/herotext.svg" style="max-width: 30em" />
+    </div>
+    <div id="heroBottom">
+      <a href="#bottom">
+        <img src="/public/chevron.svg" alt="scroll down" style="width: 4em" />
+      </a>
+    </div>
+  </section>
+</html>
+<style>
+  #heroSection {
+    background-image: url(/public/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 90vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 10% auto 10%;
+    grid-template-rows: 10% auto 15%;
+  }
+
+  #heroBox {
+    justify-items: center;
+    align-self: center;
+    display: grid;
+    height: fit-content;
+    grid-row: 2;
+    grid-column: 2;
+  }
+
+  #heroBottom {
+    display: grid;
+    justify-content: center;
+    align-self: end;
+    padding: 2em;
+    grid-row: 3;
+    grid-column: 2;
+  }
+</style>
