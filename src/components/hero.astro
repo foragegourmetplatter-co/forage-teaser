@@ -1,20 +1,45 @@
 ---
 ---
+<script>/*
+document.addEventListener("DOMContentLoaded", function() {
+  var lazyBackgrounds = [].slice.call(document.querySelectorAll(".heroSection"));
+
+  if ("IntersectionObserver" in window) {
+    let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          lazyBackgroundObserver.unobserve(entry.target);
+        }
+      });
+    });
+
+    lazyBackgrounds.forEach(function(lazyBackground) {
+      lazyBackgroundObserver.observe(lazyBackground);
+    });
+  }
+});*/
+</script>
 <html>
-  <section id="heroSection">
+  <section class="heroSection">
     <div id="heroBox">
-      <img src="/img/herotext.svg" style="max-width: 40em" alt="Something really good is happening soon" />
+      <img id="heroText" src="/img/herotext.svg" style="max-width: 40em" alt="Something really good is happening soon" />
     </div>
     <div id="heroBottom">
       <a href="#bottom">
-        <img src="/img/chevron.svg" alt="scroll down" style="width: 3em" />
+        <img class="btn" src="/img/chevron.svg" alt="scroll down" style="width: 3em" />
       </a>
     </div>
   </section>
 </html>
 <style>
-  #heroSection {
+  @keyframes fadein {
+    from {opacity: 0}
+    to {opacity: 1}
+  }
+  .heroSection {
     background-image: url(/img/hero.jpg);
+    background-image: url(/img/hero.webp);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +49,28 @@
     grid-template-columns: 10% auto 10%;
     grid-template-rows: 10% auto 15%;
   }
-
+  .heroSection.visible {
+   animation: fadein 1000ms;
+    animation-fill-mode: both;
+  }
+  @keyframes fadeup {
+    from { 
+      transform: translateY(2em);
+      opacity: 0%;
+      scale: 0.5
+    }
+    to {    
+      transform: translateY(0em);
+      opacity: 100%;
+    }
+  }
+  #heroText {
+    will-change: transform;
+    animation: fadeup 500ms;
+    animation-fill-mode: both;
+    animation-delay: 500ms;
+  }
+  
   #heroBox {
     justify-items: center;
     align-self: center;
@@ -41,5 +87,22 @@
     padding: 2em;
     grid-row: 3;
     grid-column: 2;
+  }
+  @keyframes bounce {
+    0% {transform: translateY(0px); opacity: 0.5}
+    25% {transform: translateY(20px); opacity: 0.6}
+    50% {transform: translateY(0px); opacity: 0.6}
+    75% {transform: translateY(20px); opacity: 0.6}
+    100% {transform: translateY(0px); opacity: 0.5}
+  }
+  .btn {
+    will-change: transform;
+    opacity: 0.5;
+    animation: bounce 1000ms;
+    animation-delay: 5000ms;
+    transition: opacity 250ms;
+  }
+  .btn:hover {
+    opacity: 0.8;
   }
 </style>
