@@ -9,12 +9,7 @@
         <img class="btn" src="/img/chevron.svg" alt="scroll down" style="width: 3em" />
     </div>
   </section>
-<script>
-  document.querySelector('.btn').addEventListener('click', function(e) {
-    e.preventDefault();
-      window.scrollTo({ top: document.body.clientHeight - window.innerHeight, left: 0, behavior: 'smooth' });
-  });
-</script>
+<script src="https://unpkg.com/smoothscroll-polyfill/dist/smoothscroll.min.js"></script>
 </html>
 <style>
   
@@ -93,3 +88,12 @@
     animation-fill-mode: forwards
   }
 </style>
+<script>
+window.addEventListener('load', function() {
+      // scroll to bottom
+      document.querySelector('.btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: document.body.clientHeight - window.innerHeight, left: 0, behavior: 'smooth' });
+      });
+    });
+</script>
