@@ -11,5 +11,8 @@
   "devDependencies": {
     "astro": "^0.22.13",
     "prettier": "2.5.1"
+  },
+  "dependencies": {
+    "smoothscroll-polyfill": "^0.4.4"
   }
 }

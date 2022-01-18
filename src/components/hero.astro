@@ -1,38 +1,23 @@
 ---
 ---
-<script>/*
-document.addEventListener("DOMContentLoaded", function() {
-  var lazyBackgrounds = [].slice.call(document.querySelectorAll(".heroSection"));
-
-  if ("IntersectionObserver" in window) {
-    let lazyBackgroundObserver = new IntersectionObserver(function(entries, observer) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          lazyBackgroundObserver.unobserve(entry.target);
-        }
-      });
-    });
-
-    lazyBackgrounds.forEach(function(lazyBackground) {
-      lazyBackgroundObserver.observe(lazyBackground);
-    });
-  }
-});*/
-</script>
 <html>
   <section class="heroSection">
     <div id="heroBox">
       <img id="heroText" src="/img/herotext.svg" style="max-width: 40em" alt="Something really good is happening soon" />
     </div>
     <div id="heroBottom">
-      <a href="#bottom">
         <img class="btn" src="/img/chevron.svg" alt="scroll down" style="width: 3em" />
-      </a>
     </div>
   </section>
+<script>
+  document.querySelector('.btn').addEventListener('click', function(e) {
+    e.preventDefault();
+      window.scrollTo({ top: document.body.clientHeight - window.innerHeight, left: 0, behavior: 'smooth' });
+  });
+</script>
 </html>
 <style>
+  
   @keyframes fadein {
     from {opacity: 0}
     to {opacity: 1}
@@ -49,15 +34,10 @@ document.addEventListener("DOMContentLoaded", function() {
     grid-template-columns: 10% auto 10%;
     grid-template-rows: 10% auto 15%;
   }
-  .heroSection.visible {
-   animation: fadein 1000ms;
-    animation-fill-mode: both;
-  }
   @keyframes fadeup {
     from { 
       transform: translateY(2em);
       opacity: 0%;
-      scale: 0.5
     }
     to {    
       transform: translateY(0em);
@@ -68,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     will-change: transform;
     animation: fadeup 500ms;
     animation-fill-mode: both;
-    animation-delay: 500ms;
+    animation-delay: 1000ms;
   }
   
   #heroBox {
@@ -88,21 +68,28 @@ document.addEventListener("DOMContentLoaded", function() {
     grid-row: 3;
     grid-column: 2;
   }
-  @keyframes bounce {
-    0% {transform: translateY(0px); opacity: 0.5}
-    25% {transform: translateY(20px); opacity: 0.6}
-    50% {transform: translateY(0px); opacity: 0.6}
-    75% {transform: translateY(20px); opacity: 0.6}
-    100% {transform: translateY(0px); opacity: 0.5}
+  @keyframes fadeindown {
+    from {transform: translateY(-20px); opacity: 0.0; animation-timing-function: ease;}
+    to {transform: translateY(0px); opacity: 0.5; animation-timing-function: ease;}
   }
   .btn {
     will-change: transform;
+    animation: fadeindown 1500ms;
+    animation-delay: 1500ms;
+    animation-fill-mode: backwards;
     opacity: 0.5;
-    animation: bounce 1000ms;
-    animation-delay: 5000ms;
+    cursor: pointer;
     transition: opacity 250ms;
   }
   .btn:hover {
-    opacity: 0.8;
+    opacity: 1;
+  }
+  @keyframes fadeoutdown {
+    from {transform: translateY(0px); opacity: 1;}
+    to {transform: translateY(20px); opacity: 0;}
+  }
+  .btn:active {
+    animation: fadeoutdown 100ms;
+    animation-fill-mode: forwards
   }
 </style>
