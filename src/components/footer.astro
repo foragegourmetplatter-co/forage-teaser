@@ -1,13 +1,13 @@
 --- ---
 <section id="bottom" class="callToAction">
-  <img id="logo" src="/img/forage.svg" alt="Forage Gourmet Platter Co" />
-  <div id="socials">
+  <img class="logo reveal" src="/img/forage.svg" alt="Forage Gourmet Platter Co" />
+  <div class="socialBox reveal">
     <a href="https://facebook.com/foragegourmetplatterco">
-      <img class="socialLogo" src="/img/fb.svg" alt="facebook"
+      <img class="socialLogo fb" src="/img/fb.svg" alt="facebook"
     /></a>
     <a href="https://instagram.com/forage.gourmetplatterco">
-      <img class="socialLogo" src="/img/insta.svg" alt="instagram"
-    /></a>
+      <img class="socialLogo insta" src="/img/insta.svg" alt="instagram"/>
+    </a>
   </div>
 
   <footer>©2022 Forage Gourmet Platter Co</footer>
@@ -18,20 +18,32 @@
     height: 100vh;
     width: 100%;
     grid-template-columns: repeat(6, auto);
-    grid-template-rows: repeat(5, auto) 4em;
+    grid-template-rows: repeat(6, auto) 4em;
   }
 
-  #logo {
+  .logo {
     grid-column: 2 / span 4;
-    grid-row: 2;
+    grid-row: 3;
     justify-self: center;
     align-self: center;
     max-width: 50em;
+    transition: transform 500ms;
+  }
+  .reveal {
+    position: relative;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: 1s all ease;
+    transition-delay: 500ms;
+  }
+  .reveal.active {
+    transform: translateY(0);
+    opacity: 1;
   }
 
-  #socials {
+  .socialBox {
     grid-column: 3 / span 2;
-    grid-row: 4;
+    grid-row: 5;
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
@@ -45,13 +57,55 @@
     width: 5em;
     height: 5em;
     flex: 1;
+    transition: opacity 200ms;
+    opacity: 0.9;
   }
+  .socialLogo:hover {
+    opacity: 1;
+  }
+  @keyframes clickfade {
+    from {transform: scale(1); opacity: 0.9; animation-timing-function: linear;}
+    to {transform: scale(1.5); opacity: 0; animation-timing-function: ease-out;}
+  }
+  .socialLogo:active {
+    animation: clickfade;
+    animation-duration: 100ms;
+    animation-direction: alternate;
+  }
+ 
+ .insta:hover,
+ .insta:active {
+    filter: invert(39%) sepia(90%) saturate(2650%) hue-rotate(263deg) brightness(80%) contrast(95%);
+ }
+ .fb:hover,
+ .fb:active {
+   filter: invert(32%) sepia(97%) saturate(1423%) hue-rotate(201deg) brightness(93%) contrast(90%);
+ }
 
   footer {
     color: #cdc9c3;
     font-family: Montserrat, Tahoma, Geneva, Verdana, sans-serif;
-    grid-row: 6;
+    grid-row: 7;
     grid-column: 3 / span 2;
     text-align: center;
+    padding: 1em;
   }
 </style>
+<script>
+function reveal() {
+  var reveals = document.querySelectorAll(".reveal");
+
+  for (var i = 0; i < reveals.length; i++) {
+    var windowHeight = window.innerHeight;
+    var elementTop = reveals[i].getBoundingClientRect().top;
+    var elementVisible = 150;
+
+    if (elementTop < windowHeight - elementVisible) {
+      reveals[i].classList.add("active");
+    } else {
+      reveals[i].classList.remove("active");
+    }
+  }
+}
+window.addEventListener("scroll", reveal);
+</script>
